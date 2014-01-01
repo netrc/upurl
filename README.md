@@ -10,3 +10,11 @@ Simple, unobtrusive utility that helps navigate websites. Clicking on the icon w
 Free, no ads, no analytics.
 
 
+
+some git notes:
+
+
+  $ git clone git@github.com:netrc/upurl.git
+  $ ssh-agent > ~/.ssh/sshAgent.env
+  $ . ~/.ssh/sshAgent.env
+  $ ssh-add  # prompts for passphrase; stores in ssh-agent
