@@ -14,7 +14,8 @@ Free, no ads, no analytics.
 some git notes:
 
 
-  $ git clone git@github.com:netrc/upurl.git
-  $ ssh-agent > ~/.ssh/sshAgent.env
-  $ . ~/.ssh/sshAgent.env
-  $ ssh-add  # prompts for passphrase; stores in ssh-agent
+    $ git clone git@github.com:netrc/upurl.git
+    $ ssh-agent > ~/.ssh/sshAgent.env
+    $ . ~/.ssh/sshAgent.env
+    $ ssh-add  # prompts for passphrase; stores in ssh-agent
+    # see https://help.github.com/articles/working-with-ssh-key-passphrases
