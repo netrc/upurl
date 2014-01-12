@@ -3,7 +3,7 @@ var UpUrl = {
 
   setup : function () {
 	UpUrl.xlog(" setup starting... ");
-	chrome.tabs.query( {active: true}, UpUrl.thisTab );
+	chrome.tabs.query( {active: true, lastFocusedWindow: true}, UpUrl.thisTab );
   },
 
   addUrl : function( ul, l ) {
@@ -29,7 +29,9 @@ var UpUrl = {
 		UpUrl.xlog(" tabarray is zero length"); 
 		return; 
 	};
-	UpUrl.xlog("  url " + tabArray[0].url);
+	for (var z = 0; z<tabArray.length; z++) {
+		UpUrl.xlog("  url tab["+z+"]:" + tabArray[z].url);
+	}
 	var sa = tabArray[0].url.split("/");
         var h = sa.shift();	// e.g. "http:" or https or whatever
         var d = sa.shift();	// e.g. should be empty
