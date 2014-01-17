@@ -30,6 +30,20 @@
       equal( ua2[3], "https://bar.foo.net/a/b", "bar.foo.net/a/b" ); 
       equal( ua2[4], "https://bar.foo.net/a/b/c?x=y&w=z", "bar.foo.net/a/b/c?x=y&w=z" ); 
       });
+    test( "ua3 extra dots", function() {
+      var ua3 = UpUrl.getUpUrlsArray("http://bar.foo.net/a.a.a/b.b/c?x=y&w=z");
+      equal( ua3.length, 5, "ua3 length 5");
+      equal( ua3[0], "http://foo.net", "foo.net" ); 
+      equal( ua3[1], "http://bar.foo.net", "bar.foo.net" ); 
+      equal( ua3[2], "http://bar.foo.net/a.a.a", "bar.foo.net/a.a.a" ); 
+      equal( ua3[3], "http://bar.foo.net/a.a.a/b.b", "bar.foo.net/a.a.a/b.b" ); 
+      equal( ua3[4], "http://bar.foo.net/a.a.a/b.b/c?x=y&w=z", "bar.foo.net/a.a.a/b.b/c?x=y&w=z" ); 
+      });
+    test( "ua4 chrome", function() {
+      var ua4 = UpUrl.getUpUrlsArray("chrome://extensions");
+      equal( ua4.length, 1, "ua4 length 1");
+      equal( ua4[0], "chrome://extensions", "extensions" ); 
+      });
 
   </script>
 </body>

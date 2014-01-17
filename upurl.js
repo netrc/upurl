@@ -15,6 +15,7 @@ var UpUrl = {
   addUrl : function( l ) {
 	var newLi = document.createElement("li");
 	// dev note: can't use an onClick anchor option, violates standard extension security policy
+	// newLi.innerHTML = '<a href="'+l+'" > ' + l + ' </a>';
 	newLi.innerHTML = '<a href="" > ' + l + ' </a>';
 	newLi.addEventListener("click", function(){ chrome.tabs.create({url:l}); });
 	UpUrl.uE.appendChild(newLi);
@@ -37,6 +38,11 @@ var UpUrl = {
 	}
 	for (var z = 0; z<tabArray.length; z++) {
 		UpUrl.xlog("  url tab["+z+"]:" + tabArray[z].url);
+	}
+	// so far, the assumption is that the active tab on the last focused
+	// window will give you just one URL in the array.
+	if (tabArray[0].url == "chrome://newtab/") { // special case to ignore
+		return;
 	}
 
 	var ua = UpUrl.getUpUrlsArray(tabArray[0].url);
