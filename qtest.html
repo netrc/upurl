@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>UpUrl qUnit tests</title>
+  <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.13.0.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="http://code.jquery.com/qunit/qunit-1.13.0.js"></script>
+  <script src="upurl.js"></script>
+  <script>
+    module("upurl basics");
+    test( "ua1 foo.com", function() {
+      var ua1 = UpUrl.getUpUrlsArray("http://www.foo.com/a/b/c");
+      equal( ua1.length, 5, "ua1 length 5");
+      equal( ua1[0], "http://foo.com", "foo.com" ); 
+      equal( ua1[1], "http://www.foo.com", "www.foo.com" ); 
+      equal( ua1[2], "http://www.foo.com/a", "www.foo.com/a" ); 
+      equal( ua1[3], "http://www.foo.com/a/b", "www.foo.com/a/b" ); 
+      equal( ua1[4], "http://www.foo.com/a/b/c", "www.foo.com/a/b/c" ); 
+      });
+    test( "ua2 https and cgi", function() {
+      var ua2 = UpUrl.getUpUrlsArray("https://bar.foo.net/a/b/c?x=y&w=z");
+      equal( ua2.length, 5, "ua2 length 5");
+      equal( ua2[0], "https://foo.net", "foo.net" ); 
+      equal( ua2[1], "https://bar.foo.net", "bar.foo.net" ); 
+      equal( ua2[2], "https://bar.foo.net/a", "bar.foo.net/a" ); 
+      equal( ua2[3], "https://bar.foo.net/a/b", "bar.foo.net/a/b" ); 
+      equal( ua2[4], "https://bar.foo.net/a/b/c?x=y&w=z", "bar.foo.net/a/b/c?x=y&w=z" ); 
+      });
+
+  </script>
+</body>
+</html>
